@@ -7,3 +7,7 @@ projects:
     description: ''
     tags: []
     lastUpdated: 1738143583336
+  test-project-studio:
+    description: description
+    tags: []
+    lastUpdated: 1738864040756
