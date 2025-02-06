@@ -29,3 +29,9 @@ projects:
     tags:
       - test 2
     lastUpdated: 1738866003447
+  proj8:
+    description: |
+      test3
+    tags:
+      - test 2
+    lastUpdated: 1738866245800
