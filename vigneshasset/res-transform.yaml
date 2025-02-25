@@ -23,8 +23,3 @@ spec:
         - $path: format.xsl
     remove:
       - ${response.headers.name}
-    namespaces:
-      - prefix: ps1
-        URI: http://test.com
-      - prefix: ps2
-        URI: http://test2.com
