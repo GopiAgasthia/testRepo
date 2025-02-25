@@ -7,8 +7,6 @@ metadata:
   name: policyseq
   version: 1
   namespace: thor
-  tags:
-    - seq
 spec:
   transport:
     - $ref: thor:transport:alpha

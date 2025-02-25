@@ -11,7 +11,6 @@ metadata:
     - tags
 spec:
   url: http://petstore.swagger.io
-  method: GET
   connectTimeout: 300
   readTimeout: 200
   sslConfig:
