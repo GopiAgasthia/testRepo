@@ -8,7 +8,7 @@ metadata:
   namespace: thor
   version: 1
   tags:
-     - 79
+     - 80
 spec:
   mocked: true
   api-spec: 
