@@ -9,7 +9,7 @@ metadata:
   version: 1
   tags:
      - 6
-     - 29
+     - 0
 spec:
   mocked: true
   api-spec: 
