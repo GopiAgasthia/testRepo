@@ -6,8 +6,6 @@ metadata:
   name: dasoenv
   version: alpha
   namespace: thor
-  tags:
-    - payEnv
 spec:
   variables:
     - key: "content-type"
