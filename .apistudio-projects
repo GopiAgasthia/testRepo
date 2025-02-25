@@ -23,3 +23,7 @@ projects:
     description: ''
     tags: []
     lastUpdated: 1738904782643
+  test project without file:
+    description: ''
+    tags: []
+    lastUpdated: 1740481883920
