@@ -5,7 +5,6 @@ kind: environment
 metadata:
   name: dasoenv
   version: alpha
-  namespace: thor
 spec:
   variables:
     - key: "content-type"
