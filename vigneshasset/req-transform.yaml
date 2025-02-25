@@ -7,8 +7,6 @@ metadata:
   name: request_processing_policy
   version: alpha
   namespace: thor
-  tags:
-    - iden
 spec:
   condition: (${request.headers.test} equals test1) or (${request.headers.test} notEquals ${request.payload.jsonPath[$.customer.name]})
   transformations:
