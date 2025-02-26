@@ -6,8 +6,7 @@ apiVersion: api.webmethods.io/beta
 metadata:
   name: endpoint
   version: alpha
-  namespace: thor
-
+  namespace: tho
 spec:
   url: http://petstore.swagger.io
   connectTimeout: 300
