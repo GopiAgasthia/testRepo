@@ -6,9 +6,6 @@ metadata:
   name: basicassert
   version: alpha
   namespace: thor
-  tags:
-     - 1 
-     - 2
 spec:
   - name: "Validate the response status"
     key: "code"
