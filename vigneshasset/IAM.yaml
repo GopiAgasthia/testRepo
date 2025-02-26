@@ -7,8 +7,6 @@ metadata:
   name: My_IAM
   version: alpha
   namespace: thor
-  tags:
-    - IAM
 spec:
   enabled: true
   triggerPolicyViolation: true
