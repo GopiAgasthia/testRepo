@@ -5,7 +5,7 @@ kind: assertion
 metadata:
   name: basicassert
   version: alpha
-  namespace: thor
+  namespace: tho
 spec:
   - name: "Validate the response status"
     key: "code"
