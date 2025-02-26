@@ -7,9 +7,6 @@ metadata:
   version: alpha
 spec:
   variables:
-    - key: "content-type"
-      value: "application/json"
-      isSecret: false
     - key: "dogname"
       value: "tommy"
       isSecret: false
