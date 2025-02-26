@@ -6,7 +6,7 @@ apiVersion: api.webmethods.io/beta
 metadata:
   namespace: thor
   name: response_processing_policy
-  version: alpha
+  version: alph
 spec:
   condition: (${response.headers.name} equals svis)
   transformations:
