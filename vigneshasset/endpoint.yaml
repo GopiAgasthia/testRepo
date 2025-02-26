@@ -7,8 +7,7 @@ metadata:
   name: endpoint
   version: alpha
   namespace: thor
-  tags:
-    - tags
+
 spec:
   url: http://petstore.swagger.io
   connectTimeout: 300
