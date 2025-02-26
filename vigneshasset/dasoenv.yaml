@@ -4,7 +4,7 @@
 kind: environment
 metadata:
   name: dasoenv
-  version: alpha
+  version: alph
 spec:
   variables:
     - key: "dogname"
