@@ -10,7 +10,7 @@ metadata:
   tags:
      - 900
 spec:
-  mocked: true
+  mocked: false
   api-spec: 
     $path: petstore.yaml
   policy-sequence: 
