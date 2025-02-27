@@ -7,5 +7,5 @@
 </xsl:copy>
 </xsl:template>
 <xsl:template match="a/text()">100</xsl:template>
-<xsl:template match="b/text()">150</xsl:template>
+<xsl:template match="b/txt()">150</xsl:template>
 </xsl:stylesheet>
