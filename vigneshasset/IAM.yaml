@@ -6,7 +6,7 @@ apiVersion: api.webmethods.io/beta
 metadata:
   name: My_IAM
   version: alpha
-  namespace: thor
+  namespace: thor2
 spec:
   enabled: true
   triggerPolicyViolation: true
