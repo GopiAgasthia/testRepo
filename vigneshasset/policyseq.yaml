@@ -6,7 +6,7 @@ apiVersion: api.webmethods.io/beta
 metadata:
   name: policyseq
   version: 1
-  namespace: tho
+  namespace: thor
 spec:
   transport:
     - $ref: thor:transport:alpha
