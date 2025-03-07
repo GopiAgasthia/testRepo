@@ -20,10 +20,6 @@ projects:
     tags:
       - test
     lastUpdated: 1738865547669
-  proj5:
-    description: description
-    tags: []
-    lastUpdated: 1738865673570
   proj8:
     description: |
       test3
