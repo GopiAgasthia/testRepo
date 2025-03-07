@@ -1,0 +1,17 @@
+kind: api
+apiVersion: api.webmethods.io/v1
+metadata:
+  name: Scoped_API
+  namespace: dev
+  version: 1.0
+  tags:
+    - sample
+  type: REST
+spec:
+  api-spec:
+    $path: petstore.yaml
+  scopes:
+    - $ref: sample:pet_scope:1.0
+    - $ref: sample:user_scope:1.0
+  policy-sequence: 
+    - $ref: dev:routing_policy:1.0
