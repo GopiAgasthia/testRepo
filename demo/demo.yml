@@ -1,4 +1,4 @@
-kind: PolicySequence
+kind: PolicySequences
 apiVersion: api.webmethods.io/v1
 metadata:
   name: scope_policy_sequence
