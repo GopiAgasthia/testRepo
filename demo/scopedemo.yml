@@ -1,5 +1,5 @@
 kind: Scope
-apiVersion: api.webmethods.io/beta
+apiVersion: sapi.webmethods.io/beta
 metadata:
   name: dev_scope
   version: '1.0'
