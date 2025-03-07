@@ -1,10 +1,4 @@
 projects:
-  proj8:
-    description: |
-      test3
-    tags:
-      - test 2
-    lastUpdated: 1738866245800
   proj12:
     description: ''
     tags: []
