@@ -4,8 +4,6 @@ metadata:
   name: Mocking_API
   namespace: dev
   version: 1.0
-  tags:
-    - sample
   type: REST
 spec:
   api-spec:
