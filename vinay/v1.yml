@@ -4,7 +4,8 @@ metadata:
   name: v1
   namespace: fasd
   version: '1.0'
-  tags: []
+  tags: 
+    - tag1
   type: REST
 spec:
   api-spec:
