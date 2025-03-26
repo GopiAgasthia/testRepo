@@ -4,7 +4,7 @@ metadata:
   name: TestPayments
   version: 1.0.0
   tags:
-    - functional
+    - functional123
   namespace: default
 spec:
   api:
