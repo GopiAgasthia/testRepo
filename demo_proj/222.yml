@@ -1,0 +1,11 @@
+kind: api
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: '222'
+  namespace: des
+  version: '1.0'
+  tags: []
+  type: REST
+spec:
+  api-spec:
+    $path: 222-spec.yml
