@@ -5,7 +5,7 @@ metadata:
   namespace: sample
   version: '1.0'
   tags: 
-    - tag9
+    - tag
 spec:
   transport:
     - $ref: default:vigneshtransport:1.0
