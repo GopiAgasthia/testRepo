@@ -1,0 +1,8 @@
+kind: PolicySequence
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: policy-seq-1
+  namespace: dev
+  version: '1.0'
+  tags: []
+spec: {}
