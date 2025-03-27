@@ -1,0 +1,11 @@
+kind: Scope
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: test
+  namespace: sss
+  version: a
+  tags: []
+  description: ''
+spec:
+  resources: []
+  policy-sequence: []
