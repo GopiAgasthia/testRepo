@@ -1,0 +1,14 @@
+kind: api
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: Petstore
+  namespace: sample
+  version: '1.0'
+  type: REST
+  tags:
+    - dev
+spec:
+  api-spec:
+    $path: ./Petstore-spec.yml
+  policy-sequence: 
+    - $ref: default:mocking-demo-PolicySeq:alpha
