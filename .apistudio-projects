@@ -1,8 +1,4 @@
 projects:
-  demo_proj:
-    description: ''
-    tags: []
-    lastUpdated: 1742816675303
   test project:
     description: ''
     tags: []
