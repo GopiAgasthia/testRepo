@@ -2,8 +2,8 @@ kind: Transport
 apiVersion: api.webmethods.io/beta
 metadata:
   name: a-test-transport
-  namespace: dev
-  version: "1.0"
+  namespace: devghh
+  version: '1.0'
   tags:
     - tag1
 spec: {}
