@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  version: 2.0.0
+  title: simple API
+  x-ibm-name: simple-api
+  description: sxcvvcxc
+servers:
+  - url: https://apimdev0223.hursley.ibm.com:9443/aliens-bank/services/simpleAPI/v2
+x-ibm-configuration:
+  cors:
+    enabled: true
+  type: rest
+  phase: realized
+  enforced: true
+  testable: true
+paths:
+  /invoke-post2:
+    post:
+      responses:
+        '200':
+          description: success
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            examples: {}
+        required: true
+components:
+  securitySchemes:
+    clientID:
+      type: apiKey
+      in: header
+      name: X-AppName
+      x-key-type: client_id
+security:
+  - clientID: []
+x-ibm-endpoints:
+  - url: 
