@@ -1,0 +1,10 @@
+kind: test
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: test
+  namespace: hsidusu
+  version: '1.0'
+  tags: []
+spec:
+  api:
+    $ref: 'dev:newAPI_name:1.0'
