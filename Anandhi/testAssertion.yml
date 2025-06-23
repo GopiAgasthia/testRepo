@@ -1,0 +1,8 @@
+kind: assertion
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: testAssertion
+  namespace: Anandhi
+  version: '1.0'
+  tags: []
+spec: []
