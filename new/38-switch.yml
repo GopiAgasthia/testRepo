@@ -1,0 +1,22 @@
+kind: switch
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "data-masking-request-switch"
+  version: 1.0
+  namespace: sample
+spec:
+  cases:
+    - condition: "$header('request', 'Content-Type') = 'application/json'" #json payload
+      execute:
+        - $ref:sample:redact-request-json
+        - $ref:sample:remove-request-json
+        - $ref:sample:transform-request-json
+    - condition: "$header('request', 'Content-Type') in ['application/xml', 'text/xml']" #xml payload
+      execute:
+        - $ref:sample:redact-request-xml #NoDef
+        - $ref:sample:remove-request-xml #NoDef
+        - $ref:sample:simpleTransform-request-xml #NoDef
+  otherwise: #everything else treated as text? -> TBC if text content type needs to be checked against
+        - $ref:sample:redact-request-text #NoDef
+        - $ref:sample:remove-request-text #NoDef
+        - $ref:sample:transform-request-text #NoDef

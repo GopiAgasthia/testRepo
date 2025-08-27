@@ -1,0 +1,23 @@
+#
+# Copyright Super iPaaS Integration LLC, an IBM Company 2024
+#
+kind: MessageConfig
+apiVersion: api.ibm.com/v1
+metadata:
+  name: MessageConfig
+  version: 1.0
+  namespace: sample
+spec: 
+  connectionAlias: alias1
+  destination:
+    name: test
+    type: queue # queue or topic
+  replyTo:
+    name: test
+    type: queue # queue or topic
+  ttl: 10ms
+  timeToWait: 10ms
+  deliveryMode: persistent # persistent or non_persistent
+  property:
+    - key: ${request.path}
+      value: test-value

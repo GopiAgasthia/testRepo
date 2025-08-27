@@ -1,0 +1,15 @@
+kind: EnforceCircuitBreaker
+apiVersion: api.ibm.com/v1
+metadata:
+  name: ibm_cloud_login
+  version: 1
+  namespace: sample
+spec:
+    preventHalfOpen: true #optional(default false) -> if set to false, while in the recover duration, once you get halfway through it, allow 50% of the traffic (1 in 2 requests can get in the execute)
+    recoveryDuration : 60  #optional(default 10s) -> min:1s, max:1day(in seconds)
+    breakConditions : concurrency # reportedFailures , reportedFailuresAndConcurrency -> reportedFailures count uncaugh exceptions in the execute block
+    maxConcurrentRequests : 15
+    execute: 
+     - $ref : "sample:invoke_backend_1"
+    fallbackExecute : #less expensive than the execute, usually youd want to craft a custom error message here
+     - $ref : "sample:throw-503"

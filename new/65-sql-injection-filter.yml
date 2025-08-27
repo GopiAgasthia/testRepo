@@ -1,0 +1,23 @@
+kind: SQLInjectionFilter
+apiVersion: api.ibm.com/beta
+metadata:
+  name: sqlInjectionFilter
+  namespace: security
+  version: 1.0
+spec:
+  filterOn: "body" # Options: "body" (default) | "uri" | "bodyAndUri" 
+  injectionRules:
+    predefined:
+      - "likeMatch"
+      - "escapeSequence"
+      - "keywordInjection"
+      - "mSSQLCommands"
+      - "metacharacters"
+      - "oracleBufferOverflow"
+      - "commands"
+      - "simpleMetacharacters"
+      - "orAndAttack"
+    custom:
+      - "my-filter-1" #name of the custom injection rule, corersnponding regex needs to be supplied to the gateway via the admin view (APIM)
+      - "my-filter-2"
+  message: "request"

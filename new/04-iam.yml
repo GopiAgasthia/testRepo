@@ -1,0 +1,124 @@
+# The sample contains all fields, but not all field values
+kind: IAM
+apiVersion: api.ibm.com/v1
+metadata:
+  name: "sample-IAM"
+  version: 1.0
+  namespace: sample
+spec:
+  accessControl:
+    - - httpBasic:
+          applicationSecurity: #could rename to applicationSecurity. Can also omit for APIC usecases
+            mode: authorize #also possible identify, authenticate
+          credentialLocation: #optional, defaults to Authorization header of the request
+            httpHeader:
+              name: my-custom-header
+          credentialRegistry: #Is required
+            - primary-ldap
+            - secondary-ldap
+          userGroupAuthorization: #optional for doing LDAP style group membership authorization
+            requiredGroups:
+              - admins
+              - rnd
+      - apiKey:
+          applicationSecurity: #REQUIRED
+            mode: authorize
+          credentialLocation:
+            httpHeader:
+              name: my-api-key-header
+    - - oauth:
+          applicationSecurity:
+            mode: authorize
+          credentialLocation: #optional, default to Authorization
+            httpHeader:
+              name: my-oauth-header
+          providers: #required
+            - provider1
+            - provider2
+          introspectionCredentials: #optional, APIC usecase, use custom credentials for introspection call (instead of those in provider config)
+            idHeader: my-id-header
+            secretheader: my-secret-header
+          audClaim: #optional list of audiences to check against
+            - aud1
+            - aud2
+          requiredScopes: #might need to enhance to accept variables
+            - provider: provider1
+              scopes: #require read and write scope
+                - read
+                - write
+            - provider: provider2
+              scopes:
+                - readwrite
+    - - jwt:
+          applicationSecurity:
+            mode: authorize
+          credentialLocation: #optional, defaults to Authorization header
+            httpHeader:
+              name: my-jwt-header
+          providers: #refs to runtime reigstered Oauth providers
+            - provider1
+            - provider2
+          requiredClaims:
+            - provider: provider1
+              claims: #required all these claims to be available
+                - name: my-claim-1
+                  value: my-value1
+                - name: my-claim-2
+                  value: my-value2
+    - - hostname:
+          applicationSecurity: #REQUIRED
+            mode: authorize
+    - - ipAddress:
+          applicationSecurity: #REQUIRED
+            mode: authorize
+    - - certificate:
+          applicationSecurity: #REQUIRED
+            mode: authorize
+          credentialLocation:
+            httpHeader:
+              name: my-cert-header
+    - - payloadElement: #Does this require implicit parsing? What better solution is there for the seperate IAM stage?
+          name: 'payload_element_1'
+    - - httpHeaders:
+          applicationSecurity: #REQUIRED
+            mode: authorize
+          credentialLocation:
+            - header1
+            - header2
+  extensions:
+    lw-gateway:
+      apiVersion: api.ibm.com/v1
+      spec:
+        securityNamespace: sec1 #optional, defaults to api security namespace
+        accessControl:
+          payloadElement:
+            - name: 'payload_element_1'
+              applicationSecurity: #REQUIRED
+                mode: authorize
+              credentialLocation:
+                regex: my-regex-*expr #or jsonata, only one allowed
+    webm-gateway:
+      apiVersion: api.ibm.com/v1
+      spec:
+        authenticationMode: 'ANY | ALL'
+        allowAnonymous: {} #optional field, presence of this attribute indicates allowAnonymous
+        triggerPolicyViolation: true
+        accessControl:
+          kerberos:
+            applicationSecurity: #could rename to applicationSecurity. Can also omit for APIC usecases
+              mode: authorize #also possible identify, authenticate
+            servicePrincipleName: ''
+            servicePrinciplePassword: ''
+          openIdConnect:
+            applicationSecurity: 
+              mode: authorize # authorize = registered; authenticate = global; identify = "global and default"
+          payloadElement:
+            applicationSecurity: #REQUIRED
+              mode: authorize
+            payLoadIdentifier:
+              - jPath: '$.customer.name'
+              - xpath: '$.customer.name'
+                namespaces:
+                  - prefix: ''
+                    URI: ''
+              - regex: '$.customer.name'

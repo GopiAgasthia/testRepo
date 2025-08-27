@@ -1,0 +1,16 @@
+kind: Telemetry
+apiVersion: api.ibm.com/v1
+metadata:
+  name: telemetry
+  version: 1
+  namespace: sample
+spec: 
+    attributes:
+      "api_id" : "id_1234" 
+      "api_name": "Test API"
+    verbosity:      
+      - level: basic
+        onSuccessTrimTo: basic
+        inboundLevel : basic # none, normal, detailed
+        outboundLevel: basic # none, normal, detailed
+        scope: $ref:sample:dev_scope

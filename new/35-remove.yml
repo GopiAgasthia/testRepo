@@ -1,0 +1,82 @@
+--- #remove message
+kind: remove #same for remove
+apiVersion: api.ibm.com/v1
+metadata:
+  name: "remove-request"
+  version: 1.0
+  namespace: sample
+spec:
+  message:
+    messageName: "request"
+    queryParameters:
+      - token
+      - trace
+    headers:
+      - X-API-Key
+      - X-Auth-Token
+    body:
+      captures: #OneOf
+        jsonata: #allows either regex or jsonata, but not both
+          - "doc.key.password"
+          - "doc.key.user"
+        #regex: #can't use both in the same action
+        #  - ".*password.*"
+        #  - ".*user.*"
+--- #remove variable/distributedVariable
+kind: remove #same for remove
+apiVersion: api.ibm.com/v1
+metadata:
+  name: "remove-variable"
+  version: 1.0
+  namespace: sample
+spec:
+  variable: #same for distributedVariable
+    name: "my-custom-var-1"
+    captures:
+      jsonata:
+        - "doc.key.password"
+        - "doc.key.user"
+    
+--- #regex
+kind: remove #same for remove
+apiVersion: api.ibm.com/v1
+metadata:
+  name: "remove-variable"
+  version: 1.0
+  namespace: sample
+spec:
+  variable: #same for distributedVariable
+    name: "my-custom-var-2"
+    captures:
+      regex:
+        - ".*password.*"
+        - ".*user.*"
+--- #remove variable/distributedVariable
+kind: remove #same for remove
+apiVersion: api.ibm.com/v1
+metadata:
+  name: "remove-variable"
+  version: 1.0
+  namespace: sample
+spec:
+  distributedVariable: #same for distributedVariable
+    name: "my-custom-var-1"
+    captures:
+      jsonata:
+        - "doc.key.password"
+        - "doc.key.user"
+    
+--- #regex
+kind: remove #same for remove
+apiVersion: api.ibm.com/v1
+metadata:
+  name: "remove-variable"
+  version: 1.0
+  namespace: sample
+spec:
+  distributedVariable: #same for distributedVariable
+    name: "my-custom-var-2"
+    captures:
+      regex:
+        - ".*password.*"
+        - ".*user.*"

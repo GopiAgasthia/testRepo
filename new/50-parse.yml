@@ -1,0 +1,140 @@
+--- #Simpliest config - happy path
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request" #the message name
+  detectByContentType: {}
+
+
+--- #Sample for detectByContentType
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  detectByContentType:
+    maxDepth: #all optional
+    maxDocumentSize:
+    maxNameLength:
+    maxValueLength:
+    maxWidth:
+    max_number_length:
+    max_namespaces:
+    max_prefixes: 
+    max_line_length: #text
+    max_lines: #text
+  
+
+--- #Sample for 
+
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  detectByPayload:
+    maxDepth: #all optional
+    maxDocumentSize:
+    maxNameLength:
+    maxValueLength:
+    maxWidth:
+    max_namespaces:
+    max_number_length:
+    max_prefixes:
+    
+
+--- #Sample for json
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  jSON: #same for detectByPayload
+    maxDepth: #all optional
+    maxDocumentSize:
+    maxNameLength:
+    maxValueLength:
+    maxWidth:
+    max_number_length:
+
+--- #Sample for binary
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  binary:
+    maxDocumentSize: #optional
+
+--- #Sample for text (not implemented yet)
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  text:
+    max_document_size: #all optional
+    max_line_length:
+    max_lines:
+
+--- #Sample for grapql (not implemented yet)
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  graphql:
+    maxDepth: #all optional
+    maxDocumentSize:
+    maxNameLength:
+    maxValueLength:
+    maxWidth:
+    max_number_length:
+
+
+--- #Sample for xml (not planned for v12)
+kind: parse
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "parse-request"
+  version: 1.0
+  namespace: sample
+spec:
+  input: "request"
+  output: "request" #optional by default use input
+  text:
+    maxDepth: #all optional
+    maxDocumentSize:
+    maxNameLength:
+    maxValueLength:
+    maxWidth:
+    max_namespaces:
+    max_prefixes:

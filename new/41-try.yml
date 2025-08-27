@@ -1,0 +1,38 @@
+kind: try
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: "try-sample"
+  version: 1.0
+  namespace: sample
+spec:
+  execute:
+    # Normal execute block, allows all actions
+    - $ref: sample:invoke-database:1.0
+  catch: #optional
+    # Is an array of errors+execute pairs allowed? If yes, what happens if there are 2 paris with empty "errors" definition?
+    - errors: #optional -> if left out, will catch all errors
+      - "BadRequestError" #Types might be added or slightly change? 
+      - "CacheUnmetInputs"
+      - "CacheUnmetOutputs"
+      - "ConnectionError"
+      - "CorsRejectError"
+      - "CustomError"
+      - "ForbiddenError"
+      - "InternalError"
+      - "JsonataError"
+      - "JsonataNoMatchError"
+      - "LimitExceededError"
+      - "LuaScriptError"
+      - "MethodNotAllowedError"
+      - "NotFoundError"
+      - "NotImplementedError"
+      - "ParseError"
+      - "TimeoutError"
+      - "UnauthorizedError"
+      - "ValidateError"
+      execute:
+          #handle catched error here
+        - $ref: sample:set-custom-response:1.0
+  finally: #optional
+    #normal execute block allows all actions
+    - $ref: sample:set-id-header:1.0

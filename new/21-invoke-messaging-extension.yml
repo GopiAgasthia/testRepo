@@ -1,0 +1,58 @@
+#
+# Copyright Super iPaaS Integration LLC, an IBM Company 2024
+#
+kind: InvokeMessagingExtension
+apiVersion: api.ibm.com/v1
+metadata:
+  name: messaging-extension
+  version: 1
+  namespace: sample
+  tags:
+      - invoke
+      - messaging
+      - extension
+      - policy
+spec:
+  enabled: true
+  condition: (${request.httpMethod} equals POST) or (${request.headers.name} notEquals ${request.payload.jsonPath[$.customer.name]})
+   # other operators include Equals, Equals ignore case, Not equals, Not equals ignore case, Contains, Not Contains, Exists, Not Exists, IP Range, Greater Than, Lesser Than
+  messageConfig:
+    $ref: sample:MessageConfig:1.0 # refer 28-message-config.yml
+  request_processing:
+    transformations:
+    set:
+      - key: ${request.headers.h2}
+        value: test4
+      - key: ${request.query.q2}
+        value: ${request.payload.jsonPath[$.customer.name]}
+    setPayload:
+      content-types:
+        - application/json: |
+                      {"empid" : "1"}
+        - application/xml: | 
+                      <a>a<a>
+        - text/plain: |
+                    sample text
+      default-ContentType: application/json
+      xsl:
+        - feature:
+            - name: test
+              value: value
+          $path: ./a/a.xsl
+          content: sdsd
+    remove:
+  response_processing:
+    transformations:
+    set:
+      - key: ${request.headers.h2}
+        value: test4
+      - key: ${request.query.q2}
+        value: ${request.payload.jsonPath[$.customer.name]}
+    copyEntireResponse: true
+    abortAPIExecutionForFailure: true 
+  namespaces:
+      - prefix: ps1
+        URI: http://test.com
+      - prefix: ps2
+        URI: http://test2.com
+

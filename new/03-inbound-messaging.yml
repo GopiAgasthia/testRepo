@@ -1,0 +1,16 @@
+kind: InboundMessaging
+apiVersion: api.ibm.com/v1
+metadata:
+  name: JMSAMQPTransport
+  version: 1
+  namespace: sample
+spec:
+  alias: sample
+  source:
+    - name: sourceName
+      type: QUEUE #QUEUE or TOPIC
+      selector:
+        - sample
+      resource: '/auth/create'
+      httpMethod: GET # One among GET, POST, PUT or DELETE
+      contentType: content

@@ -1,0 +1,153 @@
+kind: ExtractIdentity
+metadata: 
+  name: extractIdentity-hostip
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  hostname: {}
+  # (or)
+  # ipAddress: {}
+---
+kind: ExtractIdentity
+metadata: 
+  name: extractIdentity-http-basic
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  httpBasic: # 1 of 5
+    httpHeader: 
+      name: my-custom-header
+    # contextVar:   # 2 of 5
+    #   name: ""
+    # query:      # 3 of 5
+    #   username: ''
+    #   password: ''
+    # payload:    # 4 of 5
+    #   username: ''
+    #   password: ''
+    # cookie:     # 5 of 5
+    #   name: ''
+---
+kind: ExtractIdentity
+metadata:
+  name: extract-identity-oauth2
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  oAuth2:
+    # 1 of 5
+    httpHeader: 
+      name: my-custom-header
+    # contextVar:   # 2 of 5
+    #   name: ""
+    # query:      # 3 of 5
+    #   name: '' 
+    # payload:    # 4 of 5
+    #   name: '' 
+    # cookie:     # 5 of 5
+    #   name: ''
+---
+kind: ExtractIdentity
+metadata:
+  name: extract-identity-jwt
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  jwt:
+    # 1 of 5
+    httpHeader: 
+      name: my-custom-header
+    # contextVar:   # 2 of 5
+    #   name: ""
+    # query:      # 3 of 5
+    #   name: '' 
+    # payload:    # 4 of 5
+    #   name: '' 
+    # cookie:     # 5 of 5
+    #   name: ''
+---
+kind: ExtractIdentity
+metadata:
+  name: extract-identity-apikey
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  apiKey:
+    httpHeader: 
+      name: my-custom-header
+---
+kind: ExtractIdentity
+metadata:
+  name: ei-subscription-credentials
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  subscriptionCredentials:
+    client_id:
+      # 1 of 5
+      httpHeader: 
+        name: my-custom-header
+      # contextVar:   # 2 of 5
+      #   name: ""
+      # query:      # 3 of 5
+      #   name: '' 
+      # payload:    # 4 of 5
+      #   name: '' 
+      # cookie:     # 5 of 5
+      #   name: ''
+    client_secret:
+      # 1 of 5
+      httpHeader: 
+        name: my-custom-header
+      # contextVar:   # 2 of 5
+      #   name: ""
+      # query:      # 3 of 5
+      #   name: '' 
+      # payload:    # 4 of 5
+      #   name: '' 
+      # cookie:     # 5 of 5
+      #   name: ''
+---
+kind: ExtractIdentity
+metadata:
+  name: ei-certificate
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  certificate:
+    # 1 of 2
+    httpHeader: 
+      name: my-custom-header
+    # tLSCert: {} # 2 of 2
+---
+kind: ExtractIdentity
+metadata:
+  name: ei-http-headers
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  httpHeaders:
+    - header-one
+    - header-two
+---
+kind: ExtractIdentity
+metadata:
+  name: ei-payload-element
+  namespace: security
+  version: 1.0
+spec:
+  namespace: ""
+  payloadElement:
+    regex: '' # 1 of 2
+    # jsonata: '' #2 of 2
+
+
+    

@@ -1,0 +1,16 @@
+kind: HTTPEndpoint
+apiVersion: api.ibm.com/v1
+metadata:
+  name: default_endpoint
+spec:
+  url: http://test.com
+  method: GET
+  connectTimeout: 300
+  readTimeout: 200
+  sslConfig:
+    keyStoreAlias: ""
+    keyAlias: ""
+    trustStoreAlias: ""
+  serviceRegistryParameters:
+    - name: ""
+      value: ""

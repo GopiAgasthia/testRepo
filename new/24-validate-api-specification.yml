@@ -1,0 +1,79 @@
+kind: ValidateAPISpecification
+apiVersion: api.ibm.com/v1
+metadata:
+  name: validate_api_specification_request
+  version: 1
+  namespace: sample
+spec:
+  input: request #Not Optional
+  validate:
+    request:
+      - schema:
+           validate: true # provided to add xml feature in future
+      - query: true
+      - path: true
+      - header: true # provided to add xml feature in future
+      - cookie: true
+      - contentType: true 
+  extensions:
+    webm-gateway:
+      apiVersion: api.ibm.com/v1
+      spec:
+        validate:
+          - custom-headers:
+              condition: (${request.httpMethod} equals POST) or (${request.headers.name} notEquals ${request.payload.jsonPath[$.customer.name]})
+          - schema:
+              feature:
+                - name: TOLERATE_DUPLICATES
+                  value: true
+                - name: DISALLOW_DOCTYPE
+                  value: false
+---
+kind: ValidateAPISpecification
+apiVersion: api.ibm.com/v1
+metadata:
+  name: validate_api_specification_response
+  version: 1
+  namespace: sample
+spec:
+  input: response #Not Optional
+  validate:
+    response:
+      - schema:
+           validate: true # provided to add xml feature in future
+      - header: true # provided to add xml feature in future
+      - contentType: true
+  webm-gateway:
+    apiVersion: api.ibm.com/v1
+    spec:
+      validate:
+        - custom-headers:
+              condition: (${request.httpMethod} equals POST) or (${request.headers.name} notEquals ${request.payload.jsonPath[$.customer.name]})
+---
+kind: ValidateAPISpecification
+apiVersion: api.ibm.com/v1
+metadata:
+  name: validate_api_specification_schema_subset
+  version: 1
+  namespace: sample
+spec:
+  input: message #Not Optional
+  validate:
+    openApiSchemaRef:
+      schemaReference: "#/components/schemas/pet"
+      failureStatusCode: BadRequest # Enum BadRequest(400)/InternalServerError(500)
+      failureStatusMessage: Invalid Request # status message optional
+---
+kind: ValidateAPISpecification
+apiVersion: api.ibm.com/v1
+metadata:
+  name: validate_api_specification_schema_external
+  version: 1
+  namespace: sample
+spec:
+  input: message #Not optional
+  validate:
+    file: 
+      $path: "./schema.json"  # relative path of the scehma file inside the project.
+      failureStatusCode: BadRequest # Enum BadRequest(400)/InternalServerError(500)
+      failureStatusMessage: InvalidRequest # status message optional

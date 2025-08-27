@@ -1,0 +1,7 @@
+kind: OutboundAnonymous
+apiVersion: api.ibm.com/v1
+metadata:
+  name: OutboundAnonymous
+  version: 1.0
+  namespace: sample  
+spec: {}
