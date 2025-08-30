@@ -1,9 +1,0 @@
-kind: javaScript
-apiVersion: api.ibm.com/v1
-metadata:
-  name: ibm_cloud_login
-  version: 1
-  namespace: sample
-spec:
-  source: | 
-    ""

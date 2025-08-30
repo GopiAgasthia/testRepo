@@ -1,8 +1,0 @@
-kind: return
-apiVersion: api.webmethods.io/beta
-metadata:
-  name: "return-2-levels"
-  version: 1.0
-  namespace: sample
-spec:
-  level: 2 #set to -1 to return to top level 

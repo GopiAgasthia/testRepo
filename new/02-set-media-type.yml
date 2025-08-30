@@ -1,9 +1,0 @@
-kind: SetMediaType
-apiVersion: api.ibm.com/v1
-metadata:
-  name: setMediaType
-  version: 1
-  namespace: sample
-spec: 
-    defaultContentType: ${request.path}
-    defaultAcceptHeader: ${request.httpMethod}

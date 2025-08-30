@@ -1,9 +1,0 @@
-apiVersion: api.ibm.com/v1
-kind: if
-metadata:
-  name: if-policy
-  namespace: lwgw
-spec:
-  condition: ${request.headers.test} equals x-test
-  execute:
-    - $ref:lwgw:invoke-backend-1
