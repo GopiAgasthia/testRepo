@@ -1,1 +1,5 @@
-projects: {}
+projects:
+  demo-vcs:
+    description: ''
+    tags: []
+    lastUpdated: 1756567908584
