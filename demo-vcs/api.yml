@@ -1,0 +1,18 @@
+kind: API
+apiVersion: "api.ibm.com/v1"
+metadata:
+  name: SampleAPI-vcs
+  description: "A demo API sample with mocking enabled and having couple of policies"
+  version: "1.3"
+  namespace: webmProject
+  labels:
+    gatewayTypes:
+      - wmgm
+  type: REST
+spec:
+  api-spec:
+    $path: petstore/petstore.yml 
+  uriSchemes: 
+    $ref: webmProject:schemes-vcs:22.0
+  policy-sequence: 
+    - $ref : webmProject:policysequence-vcs:1.0
