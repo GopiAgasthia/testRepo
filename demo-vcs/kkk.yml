@@ -1,0 +1,18 @@
+kind: Plan
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: kkk
+  namespace: demo-vcs
+  version: '1.0'
+  tags: []
+  description: ''
+spec:
+  qos:
+    withQuota: []
+    withRateLimit: []
+  pricing:
+    value: 88
+    currency: kk
+  isApprovalRequired: true
+  x-datapower-config:
+    apis: []
