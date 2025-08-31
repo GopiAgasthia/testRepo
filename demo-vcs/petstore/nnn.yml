@@ -1,0 +1,11 @@
+kind: Product
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: nnn
+  namespace: demo-vcs
+  version: '1.0'
+  tags: []
+  description: ''
+spec:
+  apis: []
+  plans: []
