@@ -1,0 +1,26 @@
+kind: test
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: test-local
+  namespace: demo-vcs
+  version: "1.0"
+  tags: []
+spec:
+  api:
+    $ref: webmProject:SampleAPI-local-load:1.3
+  environment:
+    - $ref: demo:environment_1756638373023:1.0
+    - $ref: demo-vcs:environment_1756638782082:1.0
+  request:
+    - method: GET
+      resource: /pet/findByStatus
+      headers:
+        - key: Content-Type
+          value: application/json
+      auth:
+        noauth: true
+      assertions:
+        - $ref: demo-vcs:assertion_1756638928058:1.0
+      payload:
+        raw:
+          json: ufuy
