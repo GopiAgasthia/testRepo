@@ -5,7 +5,7 @@ metadata:
   namespace: demo-vcs
   version: '1.0'
   tags: []
-  description: ''
+  description: 'jjj'
 spec:
   qos:
     withQuota: []
