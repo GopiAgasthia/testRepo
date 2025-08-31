@@ -12,5 +12,5 @@ metadata:
     - dev_policies
 spec:
   routing:
-    - $ref: project:straight-through-routing1:1.0
+    - $ref: project:straight-through-routing:1.0
       
