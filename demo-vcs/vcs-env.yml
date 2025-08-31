@@ -1,0 +1,15 @@
+kind: environment
+apiVersion: api.webmethods.io/beta
+metadata:
+  name: vcs-env
+  namespace: demo-vcs
+  version: '1.0'
+  tags: []
+spec:
+  variables:
+    - key: json().id
+      isSecret: false
+      value: ${header}
+    - key: json().id
+      isSecret: false
+      value: ${header}
