@@ -8,5 +8,5 @@ metadata:
 spec:
   - name: EWVQWV
     key: __request_headers__
-    value: EWHVQH
+    value: EWHVQ
     action: equals
