@@ -1,17 +1,1 @@
-projects:
-  proj789:
-    description: ''
-    tags: []
-    lastUpdated: 1742294621417
-  proj4:
-    description: ''
-    tags: []
-    lastUpdated: 1742366806725
-  vikas:
-    description: ''
-    tags: []
-    lastUpdated: 1743058517593
-  yhy:
-    description: ''
-    tags: []
-    lastUpdated: 1753356175584
+projects: {}
