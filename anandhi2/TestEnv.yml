@@ -1,9 +1,0 @@
-kind: environment
-apiVersion: api.webmethods.io/beta
-metadata:
-  name: TestEnv
-  namespace: anandhi2
-  version: '1.0'
-  tags: []
-spec:
-  variables: []
